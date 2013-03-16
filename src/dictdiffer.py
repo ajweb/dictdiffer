@@ -7,35 +7,8 @@ http://stackoverflow.com/questions/1165352/fast-comparison-between-two-python-di
 
 
 class DictDiffer(object):
-    """
-   >>> a = {'a': 1, 'b': 1, 'c': 0}
-   >>> b = {'a': 1, 'b': 2, 'd': 0}
-   >>> d = DictDiffer(b, a)
-   >>> print "Added:", d.added()
-   Added: ('d',)
-   >>> print "Removed:", d.removed()
-   Removed: ('c',)
-   >>> print "Changed:", d.changed()
-   Changed: ('b',)
-   >>> print "Unchanged:", d.unchanged()
-   Unchanged: ('a',)
-
-   # nested dictionaries
-   >>> a = dict(a=1, b=3, c=dict(d=1, e=3, x=dict(z=1)), f=5)
-   >>> b = dict(a=1,b=2, c=dict(d=1,e=2, x=dict(z=1, y=dict(h=4,i=3))))
-   >>> d = DictDiffer(b, a)
-   >>> print "Added:", d.added()
-   Added: (('c', ('x', 'y')),)
-   >>> print "Removed:", d.removed()
-   Removed: ('f',)
-   >>> print "Changed:", d.changed()
-   Changed: ('c', 'b', ('c', 'x'), ('c', 'e'))
-   >>> print "Unchanged:", d.unchanged()
-   Unchanged: ('a', ('c', 'd'), ('c', ('x', 'z')))
-   """
     # TODO: on changed() avoid returning duplicate keys.
-    # for instance, in the sample in testdoc above, we should get this for changed:
-    # ('b', ('c', 'x'), ('c', 'e')),
+    # TODO:
     """
         Compares two dictionaries, traversing nested dictionaries,
         and provides four simple methods to access the differences between them:
